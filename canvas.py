@@ -4,7 +4,7 @@ from PIL import Image
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import tensorflow as tf
-import pickle
+#import pickle
 import joblib
 import cv2
 
@@ -34,9 +34,9 @@ rescaled = cv2.resize(img, (280, 280), interpolation=cv2.INTER_NEAREST)
 #im=Image.fromarray(arr)
 #im=im.resize([28,28])
 #im=im.convert('L')
-st.write("Recaled Image")
-st.markdown("#")
-st.image(rescaled)
+#st.write("Recaled Image")
+#st.markdown("#")
+#st.image(rescaled)
 
 knn=joblib.load("knn_model.pkl")
 model=tf.keras.models.load_model("MNIST_NN.model")
