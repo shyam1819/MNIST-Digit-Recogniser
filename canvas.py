@@ -28,17 +28,8 @@ canvas_result = st_canvas(
 
 
 img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28))
-rescaled = cv2.resize(img, (280, 280), interpolation=cv2.INTER_NEAREST)
+#rescaled = cv2.resize(img, (280, 280), interpolation=cv2.INTER_NEAREST)
 
-#arr=np.array(canvas_result.image_data)
-#im=Image.fromarray(arr)
-#im=im.resize([28,28])
-#im=im.convert('L')
-#st.write("Recaled Image")
-#st.markdown("#")
-#st.image(rescaled)
-
-knn=joblib.load("knn_model.pkl")
 model=tf.keras.models.load_model("MNIST_NN.model")
 
 
@@ -49,23 +40,8 @@ if st.button("Predict"):
     prediction_knn=knn.predict(img.reshape(1,784))[0]
     img=tf.keras.utils.normalize([img],axis=1)
     prediction_NN=model.predict(img)[0]
-    st.write(f'Prediction by KNN model: {prediction_knn}')
-    st.write(f"Prediction by a 3 layer Neural Network: {np.argmax(prediction_NN)}")
+    #st.write(f'Prediction by KNN model: {prediction_knn}')
+    st.write(f"Prediction by a Neural Network: {np.argmax(prediction_NN)}")
     
 
 
-
-#im=np.array(im)
-
-#st.write(knn.predict(im.reshape(-1,784)))
-
-#st.write(len(im.reshape(1,784)))
-#st.write(knn.predict(im.reshape(1,784))[0])
-
-
-
-
-
-
-
-#st.image(rescaled)
