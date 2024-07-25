@@ -30,6 +30,7 @@ canvas_result = st_canvas(
 img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28))
 #rescaled = cv2.resize(img, (280, 280), interpolation=cv2.INTER_NEAREST)
 
+knn=joblib.load("knn_model.pkl")
 model=tf.keras.models.load_model("MNIST_NN.model")
 
 
